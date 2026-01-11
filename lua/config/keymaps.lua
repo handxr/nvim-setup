@@ -4,9 +4,22 @@ vim.g.maplocalleader = " "
 
 local keymap = vim.keymap.set
 
--- General
-keymap("n", "<leader>e", ":Ex<CR>", { desc = "Abrir explorador de archivos" })
+-- Toggle netrw
+local last_buffer = nil
+local function toggle_netrw()
+  if vim.bo.filetype == "netrw" then
+    vim.cmd("bdelete")
+    if last_buffer and vim.api.nvim_buf_is_valid(last_buffer) then
+      vim.api.nvim_set_current_buf(last_buffer)
+    end
+  else
+    last_buffer = vim.api.nvim_get_current_buf()
+    vim.cmd("Ex")
+  end
+end
+keymap("n", "<leader>e", toggle_netrw, { desc = "Toggle explorador de archivos" })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Limpiar busqueda" })
+keymap("i", "jj", "<Esc>", { desc = "Salir del modo insert" })
 
 -- Navegacion entre ventanas
 keymap("n", "<C-h>", "<C-w>h", { desc = "Ir a ventana izquierda" })
