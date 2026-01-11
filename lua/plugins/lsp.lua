@@ -15,6 +15,7 @@ return {
           "ts_ls",
           "tailwindcss",
           "eslint",
+          "jsonls",
         },
       })
     end,
@@ -41,9 +42,17 @@ return {
       vim.lsp.config("eslint", {
         capabilities = capabilities,
       })
+      vim.lsp.config("jsonls", {
+        capabilities = capabilities,
+        settings = {
+          json = {
+            validate = { enable = true },
+          },
+        },
+      })
 
       -- Habilitar los servidores
-      vim.lsp.enable({ "ts_ls", "tailwindcss", "eslint" })
+      vim.lsp.enable({ "ts_ls", "tailwindcss", "eslint", "jsonls" })
 
       -- Keymaps para LSP (globales, se activan cuando hay LSP)
       vim.api.nvim_create_autocmd("LspAttach", {
