@@ -19,14 +19,18 @@ return {
       separator_style = "thin",
       always_show_bufferline = true,
       custom_filter = function(buf_number)
-        -- Filtrar directorios y netrw
-        local buf_ft = vim.bo[buf_number].filetype
-        if buf_ft == "netrw" or buf_ft == "" then
-          local buf_name = vim.api.nvim_buf_get_name(buf_number)
-          -- Si es un directorio, no mostrarlo
-          if vim.fn.isdirectory(buf_name) == 1 then
-            return false
-          end
+        local buf_name = vim.api.nvim_buf_get_name(buf_number)
+        -- No mostrar buffers sin nombre (vacios)
+        if buf_name == "" then
+          return false
+        end
+        -- No mostrar directorios
+        if vim.fn.isdirectory(buf_name) == 1 then
+          return false
+        end
+        -- No mostrar neo-tree
+        if vim.bo[buf_number].filetype == "neo-tree" then
+          return false
         end
         return true
       end,
