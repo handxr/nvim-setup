@@ -5,7 +5,6 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Limpiar busqueda" })
-keymap("i", "jj", "<Esc>", { desc = "Salir del modo insert" })
 
 -- Navegacion entre ventanas
 keymap("n", "<C-h>", "<C-w>h", { desc = "Ir a ventana izquierda" })
