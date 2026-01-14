@@ -16,6 +16,7 @@ return {
           "tailwindcss",
           "eslint",
           "jsonls",
+          "pyright",
         },
       })
     end,
@@ -50,9 +51,21 @@ return {
           },
         },
       })
+      vim.lsp.config("pyright", {
+        capabilities = capabilities,
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+            },
+          },
+        },
+      })
 
       -- Habilitar los servidores
-      vim.lsp.enable({ "ts_ls", "tailwindcss", "eslint", "jsonls" })
+      vim.lsp.enable({ "ts_ls", "tailwindcss", "eslint", "jsonls", "pyright" })
 
       -- Keymaps para LSP (globales, se activan cuando hay LSP)
       vim.api.nvim_create_autocmd("LspAttach", {

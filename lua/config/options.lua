@@ -31,9 +31,9 @@ opt.undofile = true
 opt.updatetime = 250
 opt.timeoutlen = 300
 
--- Desactivar netrw banner (mas limpio)
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
+-- Desactivar netrw (usamos oil.nvim)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Diagnosticos en linea
 vim.diagnostic.config({
