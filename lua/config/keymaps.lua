@@ -30,13 +30,3 @@ keymap("n", "<C-l>", "<C-w>l", { desc = "Ir a ventana derecha" })
 -- Mover lineas en modo visual
 keymap("v", "J", ":m '>+1<CR>gv=gv", { desc = "Mover linea abajo" })
 keymap("v", "K", ":m '<-2<CR>gv=gv", { desc = "Mover linea arriba" })
-
--- Mantener cursor centrado
-keymap("n", "<C-d>", "<C-d>zz", { desc = "Scroll abajo centrado" })
-keymap("n", "<C-u>", "<C-u>zz", { desc = "Scroll arriba centrado" })
-keymap("n", "n", "nzzzv", { desc = "Siguiente busqueda centrada" })
-keymap("n", "N", "Nzzzv", { desc = "Busqueda anterior centrada" })
-
--- Guardar rapido
-keymap("n", "<leader>w", "<cmd>w<CR>", { desc = "Guardar archivo" })
-keymap("n", "<leader>q", "<cmd>q<CR>", { desc = "Cerrar ventana" })
