@@ -1,29 +1,29 @@
 local opt = vim.opt
 
--- Numeros de linea
+-- Line numbers
 opt.number = true
 opt.relativenumber = true
 
--- Tabs & indentacion (2 espacios para web dev)
+-- Tabs & indentation (2 spaces for web dev)
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 
--- Busqueda
+-- Search
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = false
 opt.incsearch = true
 
--- Apariencia
+-- Appearance
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.cursorline = true
 opt.scrolloff = 8
 
--- Comportamiento
+-- Behavior
 opt.splitright = true
 opt.splitbelow = true
 opt.clipboard = "unnamedplus"
@@ -31,11 +31,11 @@ opt.undofile = true
 opt.updatetime = 250
 opt.timeoutlen = 300
 
--- Desactivar netrw (usamos oil.nvim)
+-- Disable netrw (using oil.nvim)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Diagnosticos en linea
+-- Inline diagnostics
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
