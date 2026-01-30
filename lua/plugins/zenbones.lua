@@ -1,9 +1,8 @@
 return {
-  "zenbones-theme/zenbones.nvim",
-  dependencies = { "rktjmp/lush.nvim" },
+  "olimorris/onedarkpro.nvim",
   priority = 1000,
   config = function()
-    vim.g.zenbones_compat = 1
-    vim.cmd.colorscheme("zenwritten")
+    require("onedarkpro").setup({})
+    vim.cmd.colorscheme("onedark")
   end,
 }
